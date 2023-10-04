@@ -3,10 +3,9 @@ import { inject as service } from '@ember/service';
 
 export default class EmployeeRoute extends Route {
   @service store;
+  @service employee;
 
-  model(params) {
-    console.log(params)
-
-    // return this.store.findRecord('employee', params.employee_id);
+  async model(params) {
+     return await this.employee.findEmployeeByEmpId(parseInt(params.employee_id));
   }
 }

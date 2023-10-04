@@ -20,18 +20,29 @@ export default class EmployeeDetailsComponent extends Component {
   @tracked reportingJobTitle;
   @tracked reportingPhoneNo;
   @tracked reportingEmailId;
+  @tracked btnSaveLabel = 'Save'
 
   constructor() {
     super(...arguments);
 
-    let employeeData = this.args.model;
-    console.log(employeeData)
-    // if (employeeData) {
-    //   this.name = employeeData.name;
-    //   this.phoneNo = employeeData.phoneNo;
-    //   this.email = employeeData.email;
-    //   // ... set other properties
-    // }
+    if(this.args.empData){
+      this.name = this.args.empData.name;
+      this.phoneNo = this.args.empData['phone-no'];
+      this.email = this.args.empData.email;
+      this.address =this.args.empData.address;
+      this.gender = this.args.empData.gender;
+      this.age = this.args.empData.age;
+      this.jobTitle = this.args.empData['job-title'];
+      this.exp = this.args.empData.exp;
+      this.domain = this.args.empData.domain;
+      this.technology = this.args.empData.technology;
+      this.reportingName = this.args.empData['reporting-name'];
+      this.reportingJobTitle = this.args.empData['reporting-job-title'];
+      this.reportingPhoneNo = this.args.empData['reporting-phone-no'];
+      this.reportingEmailId = this.args.empData['reporting-email-id'];
+      this.empId = this.args.empData['emp-id'];
+      this.btnSaveLabel = 'Update'
+    }
   }
 
   @action
@@ -43,6 +54,7 @@ export default class EmployeeDetailsComponent extends Component {
 
   @action
   async saveEmployee() {
+
     let empObj = {
       name: this.name,
       phoneNo: this.phoneNo,
@@ -58,15 +70,24 @@ export default class EmployeeDetailsComponent extends Component {
       reportingJobTitle: this.reportingJobTitle,
       reportingPhoneNo: this.reportingPhoneNo,
       reportingEmailId: this.reportingEmailId,
-      empId: this.getRandomInt(1, 9999999)
+      empId: this.btnSaveLabel === 'Save' ? this.getRandomInt(1, 9999999) : this.args.empData['emp-id']
     }
 
+  if(this.btnSaveLabel === 'Save'){
     try {
       await this.employee.addEmployee(empObj);
       console.log('Employee saved successfully!');
     } catch (error) {
       console.error('Error saving employee:', error);
     }
+  } else{
+    try {
+      await this.employee.updateEmployee(empObj);
+      console.log('Employee Updated successfully!');
+    } catch (error) {
+      console.error('Error Updating employee:', error);
+    }
+  }
   }
 
   getRandomInt(min, max) {

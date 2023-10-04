@@ -45,14 +45,25 @@ export default class EmployeeService extends Service {
   async updateEmployee(params) {
     try {
       // Fetch the employee record by emp-id
-      let employee = await this.store.queryRecord('employee', { filter: { 'emp-id': params.emp_id } });
+      let employee = await this.store.queryRecord('employee', { filter: { 'emp-id': params.empId } });
 
       if (employee) {
         // Update attributes
         employee.set('name', params.name);
         employee.set('phoneNo', params.phoneNo);
-        // ... update other attributes ...
-
+        employee.set('email', params.email);
+        employee.set('address', params.address);
+        employee.set('gender', params.gender);
+        employee.set('age', params.age);
+        employee.set('jobTitle', params.jobTitle);
+        employee.set('exp', params.exp);
+        employee.set('domain', params.domain);
+        employee.set('technology', params.technology);
+        employee.set('reportingName', params.reportingName);
+        employee.set('reportingJobTitle', params.reportingJobTitle);
+        employee.set('reportingPhoneNo', params.reportingPhoneNo);
+        employee.set('reportingEmailId', params.reportingEmailId);
+        employee.set('empId', params.empId);
         // Save the updated record
         await employee.save();
         console.log('Employee updated successfully:', employee);
@@ -72,11 +83,13 @@ export default class EmployeeService extends Service {
       // Delete the record
       await employee.destroyRecord();
       console.log('Employee deleted successfully.');
+      return 'success'
       
       // Optionally, transition to another route after deletion
       // this.transitionToRoute('some-other-route');
     } catch (error) {
       console.error('Error deleting employee:', error);
+      return 'failure'
     }
   }
 
