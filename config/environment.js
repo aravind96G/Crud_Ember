@@ -18,6 +18,11 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    'ember-local-storage': {
+      // Specify the model name and adapter type ('localstorage' in this case)
+      namespace: true,
+      localStorage: 'employeeCorner' // Set a unique name for your application
+    },
   };
 
   if (environment === 'development') {

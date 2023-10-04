@@ -1,0 +1,128 @@
+<div class="detail">
+  <div class="detail-header">
+    <div class="detail-header-sub"> 
+    <div>
+        {{this.model.name}}
+    </div>
+    <div>
+   <button class="btn btn-primary btn-m" type="button" {{on "click" (fn this.editEmployee this.model.emp-id)}}>&#9998; Edit</button>
+
+    </div>
+    </div>
+    <div>
+        {{this.model.phone-no}}
+    </div>
+  </div>
+  <div class="detail-body">
+      <div class="header">Personal Details</div>
+      <div class="row">
+            <div class="field-label col-md-4">
+                <p>Email ID</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.email}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Address</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.address}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Gender</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.gender}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Age</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.age}}</p>
+            </div>
+        </div>
+
+      <div class="header">Job Profile</div>
+      <div class="row">
+            <div class="field-label col-md-4">
+                <p>Job Title</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.job-title}}r</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Experience</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.exp}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Domain</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.domain}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Technology</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.technology}}</p>
+            </div>
+        </div>
+
+      <div class="header">Reporting Manager Detail</div>
+      <div class="row">
+            <div class="field-label col-md-4">
+                <p>Name</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.reporting-name}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Job Title</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.reporting-job-title}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Phone</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.reporting-phone-no}}</p>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="field-label col-md-4">
+                <p>Email ID</p>
+            </div>
+            <div class="col-md-8">
+                <p>{{this.model.reporting-email-id}}</p>
+            </div>
+        </div>
+  </div>
+</div>

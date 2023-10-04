@@ -1,0 +1,97 @@
+{{page-title "EmployeeDetailsSave"}}
+<div>
+  <div class="fixed-header">
+    <div>Employee Form</div>
+    <div class="x-icon">&#10006;</div>
+  </div>
+  <div class="form-body">
+    <form>
+      <div class="form-group">
+        <label class="form-field-label" for="name">Name:</label>
+        <input type="text" class="form-control" id="name" value={{this.name}} 
+          {{on "input" (fn this.handleInputValues "name")}}
+          required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="phoneNo">Phone Number:</label>
+        <input type="number" class="form-control" id="phoneNo" value={{this.phoneNo}}
+          {{on "input" (fn this.handleInputValues "phoneNo")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="email">Email:</label>
+        <input type="email" class="form-control" id="email" value={{this.email}}  {{on "input" (fn this.handleInputValues "email")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="address">Address:</label>
+        <textarea type="text" class="form-control" id="address" value={{this.address}}  {{on "input" (fn this.handleInputValues "address")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="gender">Gender:</label>
+        <select class="form-control" id="gender" value={{this.gender}} {{on "change" (fn this.handleInputValues "gender")}}>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="age">Age:</label>
+        <input type="number" class="form-control" id="age" value={{this.age}}  {{on "input" (fn this.handleInputValues "age")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="jobTitle">Job Title:</label>
+        <input type="text" class="form-control" id="jobTitle" value={{this.jobTitle}}  {{on "input" (fn this.handleInputValues "jobTitle")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="exp">Experience:</label>
+        <input type="text" class="form-control" id="exp" value={{this.exp}}  {{on "input" (fn this.handleInputValues "exp")}}
+          required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="domain">Domain:</label>
+        <input type="text" class="form-control" id="domain" value={{this.domain}}  {{on "input" (fn this.handleInputValues "domain")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="technology">Technology:</label>
+        <input type="text" class="form-control" id="technology" value={{this.technology}}  {{on "input" (fn this.handleInputValues "technology")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="reportingName">Reporting Name:</label>
+        <input type="text" class="form-control" id="reportingName" value={{this.reportingName}} 
+       {{on "input" (fn this.handleInputValues "reportingName")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="reportingJobTitle">Reporting Job Title:</label>
+        <input type="text" class="form-control" id="reportingJobTitle" value={{this.reportingJobTitle}}  {{on "input" (fn this.handleInputValues "reportingJobTitle")}} required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="reportingPhoneNo">Reporting Phone Number:</label>
+        <input type="number" class="form-control" id="reportingPhoneNo" value={{this.reportingPhoneNo}}  {{on "input" (fn this.handleInputValues "reportingPhoneNo")}}required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-field-label" for="reportingEmailId">Reporting Email:</label>
+        <input type="email" class="form-control" id="reportingEmailId" value={{this.reportingEmailId}}  {{on "input" (fn this.handleInputValues "reportingEmailId")}} required />
+      </div>
+
+    </form>
+  </div>
+
+  <div class="save-footer">
+    <div class="btn btn-primary" id="save-btn" {{action 'saveEmployee'}}>Save</div>
+    <div class="btn btn-primary" id="cancel-btn">Cancel</div>
+    {{!-- <div class="btn btn-primary save-btn"><button class="btn btn-primary cancel-btn">Cancel</button></div> --}}
+  </div>
+
+</div>

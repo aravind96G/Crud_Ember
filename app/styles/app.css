@@ -1,1 +1,184 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px; /* Adjust the width as needed */
+  background-color: #333; /* Sidebar background color */
+  color: #fff; /* Text color */
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%; /* Make the sidebar full height */
+  font-size: 1.25rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  height: 50px;
+}
+
+.sidebar a {
+  color: #fff; /* Sidebar link color */
+  text-decoration: none;
+  display: block;
+  height: 50px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+/* Main Content Area Styles */
+.main-content {
+  margin-left: 250px; /* Adjust this to match the sidebar width + some spacing */
+  padding: 0;
+}
+
+/* Add a hover effect to sidebar links */
+.sidebar a:hover {
+  background-color: #555; /* Hover background color */
+  border-radius: 5px;
+}
+
+/* Optional: Add a transition effect for smoother hover */
+.sidebar a {
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul a.active {
+  background-color: #007bff; /* Background color for active link */
+  border-radius: 10px;
+
+  /* Add any additional styles for the active link here */
+}
+
+.student-container {
+  display: flex;
+  width: 100%;
+}
+
+.student-list {
+  width: 30%;
+  border-right: 1px solid #f4eeee;
+  height: 100vh;
+}
+
+.detail-view {
+  width: 70%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+
+.name-title {
+  font-weight: bold;
+}
+
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ede6e6;
+  padding: 10px;
+}
+
+.detail-header-sub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-body {
+  padding: 10px;
+}
+
+.header {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.field-label {
+  color: #777;
+}
+
+.form-group {
+  margin: 10px;
+}
+
+.form-field-label {
+  display: inline-block;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: #9b9b9b;
+}
+
+.fixed-header {
+  width: 100%;
+  background: #333;
+  color: white;
+  height: 50px;
+  padding: 10px;
+  font-size: 18px;
+  position: fixed;
+  top: 0;
+}
+
+.x-icon {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+.form-body {
+  margin: 60px 0;
+  overflow-y: auto;
+}
+
+#save-btn {
+  background-color: #333;
+  border: none;
+}
+
+#cancel-btn {
+  background-color: white;
+  color: black; /* Remove default button border */
+  border: none;
+}
+
+.save-footer {
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  background: white;
+  width: 100%;
+}
+
+.table-layout {
+  padding: 10px;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+
+.w3-bar-sub {
+  border: 1px solid #dad8d8 !important;
+  border-radius: 5px !important;
+  margin-bottom: 10px;
+}
+
+.w3-ul-sub {
+  padding: 5px !important;
+}
+
+.no-data {
+  text-align: center;
+}
