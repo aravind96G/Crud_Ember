@@ -3,6 +3,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service'
 import toastr from 'toastr';
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^\d{10}$/;
 
 
 export default class EmployeeDetailsComponent extends Component {
@@ -77,10 +79,20 @@ export default class EmployeeDetailsComponent extends Component {
     if(!this.phoneNo){
       this.formValidation['phoneNo'] = 'Phone Number is Mandatory';
       isValid = false;
+    }else{
+      if(!phoneRegex.test(this.phoneNo)){
+        this.formValidation['phoneNo'] = 'Invalid Phone No';
+        isValid = false;
+      }
     }
     if(!this.email){
       this.formValidation['email'] = 'EmailId is Mandatory';
       isValid = false;
+    }else{
+      if(!emailRegex.test(this.email)){
+        this.formValidation['email'] = 'Invalid Email Id';
+        isValid = false;
+      }
     }
     if(!this.address){
       this.formValidation['address'] = 'Address is Mandatory';
@@ -121,10 +133,20 @@ export default class EmployeeDetailsComponent extends Component {
     if(!this.reportingPhoneNo){
       this.formValidation['reportingPhoneNo'] = 'Reporting Phone No is Mandatory';
       isValid = false;
+    }else{
+      if(!phoneRegex.test(this.reportingPhoneNo)){
+        this.formValidation['reportingPhoneNo'] = 'Invalid Phone No';
+        isValid = false;
+      }
     }
     if(!this.reportingEmailId){
-      this.formValidation['reportingEmailId'] = 'reportingEmailId is Mandatory';
+      this.formValidation['reportingEmailId'] = 'Reporting Email Id is Mandatory';
       isValid = false;
+    }else{
+      if(!emailRegex.test(this.reportingEmailId)){
+        this.formValidation['reportingEmailId'] = 'Invalid Reporting Email Id';
+        isValid = false;
+      }
     }
     return isValid;
   }
