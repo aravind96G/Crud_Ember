@@ -10,6 +10,8 @@ export default class StudentListRoute extends Route {
   @tracked employees;
 
   async model() {
+    const controller = this.controllerFor('student-list'); // Replace 'some-controller' with the actual name of your controller
+    controller.set('isLoading', true); // Reset the specific property to null
     console.log('student list route model')
     let employeesGet = await this.employee.getAllEmployees();
     let employeeArray = Array.from(employeesGet); // Convert proxy object to a regular array
@@ -20,7 +22,8 @@ export default class StudentListRoute extends Route {
     let extractedData = jsonDataArray.map(item => item.data.attributes);
     let jsonData = JSON.stringify(extractedData); // Convert the JavaScript array to a JSON string
     this.employees = JSON.parse(jsonData);
-    console.log(this.employees, 'emp model')
+    console.log(this.employees, 'emp model');
+    controller.set('isLoading', false);
     return this.employees;
   }
 

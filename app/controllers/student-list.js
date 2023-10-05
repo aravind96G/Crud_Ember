@@ -10,6 +10,7 @@ export default class StudentlistController extends Controller {
 
   @tracked jrc;
   @tracked searchQuery = '';
+  @tracked isLoading = false;
 
   async init() {
     super.init();
@@ -23,6 +24,7 @@ export default class StudentlistController extends Controller {
 
   @action
   handleSearchInput(event) {
+    this.isLoading = true;
     this.searchQuery = event.target.value;
   }
 
@@ -49,6 +51,11 @@ export default class StudentlistController extends Controller {
   async deleteEmployee(id, event){
     event.preventDefault(); // Prevent the default button click behavior
     event.stopPropagation(); // Prevent the event from reaching the parent tr element
+
+    var isYes = window.confirm("Do you want Delete Employee ?");
+    if(!isYes){
+      return;
+    }
     let response =  await this.employee.deleteEmployee(id);
     let employeesGet = await this.employee.getAllEmployees();
     let employeeArray = Array.from(employeesGet); // Convert proxy object to a regular array
@@ -70,8 +77,9 @@ export default class StudentlistController extends Controller {
   }
 
   get filteredModel() {
+    // this.isLoading = true;
     let searchQuery = this.searchQuery.toLowerCase();
-
+    // this.isLoading = false;
     return this.model.filter(item => {
       let name = item.name.toLowerCase();
       let email = item.email.toLowerCase();

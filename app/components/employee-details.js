@@ -26,7 +26,8 @@ export default class EmployeeDetailsComponent extends Component {
   @tracked reportingPhoneNo;
   @tracked reportingEmailId;
   @tracked btnSaveLabel = 'Save'
-  @tracked formValidation = {}
+  @tracked formValidation = {};
+  @tracked isLoading = false;
 
   constructor() {
     super(...arguments);
@@ -153,12 +154,12 @@ export default class EmployeeDetailsComponent extends Component {
 
   @action
   async saveEmployee() {
-    console.log('save fun')
-    if(!this.formValidationFn()){
-      console.log('cached validations');
-      console.log(this.formValidation)
-      return;
-    }
+    this.isLoading = true;
+    // if(!this.formValidationFn()){
+    //   console.log('cached validations');
+    //   console.log(this.formValidation)
+    //   return;
+    // }
 
     let empObj = {
       name: this.name,
@@ -197,6 +198,7 @@ export default class EmployeeDetailsComponent extends Component {
     } catch (error) {
       console.error('Error Updating employee:', error);
     }
+    this.isLoading = false;
   }
   }
 

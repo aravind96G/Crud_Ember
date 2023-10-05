@@ -6,8 +6,10 @@
     <div class="x-icon">
       <i class="fas fa-times" {{on "click" this.goBack}}></i>
     </div>
-
   </div>
+     {{#if this.isLoading}}
+    <LoaderSpinner />
+    {{/if}}
   <div class="form-body">
     <form>
       <div class="form-group">
@@ -50,7 +52,7 @@
         {{else}}
          {{#if this.email}}
         {{#unless (is-email this.email)}}
-        <div class="err-msg">Invalid Email Address</div>
+        <div class="err-msg">Enter Valid Email Address</div>
         {{/unless}}
         {{/if}}
         {{/if}}

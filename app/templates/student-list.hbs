@@ -1,5 +1,8 @@
 <div>
     <Header @title="Employee List" />
+    {{#if this.isLoading}}
+    <LoaderSpinner />
+    {{/if}}
     <div class="form-body">
         <div class="filter-container">
             <div>
