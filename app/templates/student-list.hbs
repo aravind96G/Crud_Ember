@@ -1,12 +1,16 @@
 <div>
-        <Header @title="Employee List" />
-        <div class="form-body">
-        {{!-- <div> --}}
-            <div class="filter-container">
-              <button class="btn btn-primary btn-m" type="button" {{on "click" this.goToEmployeeForm}}>&plus; Add Employee</button>
+    <Header @title="Employee List" />
+    <div class="form-body">
+        <div class="filter-container">
+            <div>
+                <input class="input-search" type="text" placeholder="Search..." value={{this.searchQuery}} {{on "input"
+                    this.handleSearchInput}}>
             </div>
-            {{!-- <div></div>
-        </div> --}}
+            <div>
+                <button class="btn btn-primary btn-m" type="button" {{on "click" this.goToEmployeeForm}}>&plus; Add
+                    Employee</button>
+            </div>
+        </div>
         <div class="table-responsive table-layout">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-dark">
@@ -18,16 +22,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#if this.model.length}}
+                    {{#if this.filteredModel.length}}
 
-                    {{#each this.model as |employee|}}
+                    {{#each this.filteredModel as |employee|}}
                     <tr {{on "click" this.goToStudentListAllPage}}>
                         <td>{{employee.emp-id}}</td>
                         <td>{{employee.name}}</td>
                         <td>{{employee.email}}</td>
                         <td>
-                            <button class="btn btn-primary btn-sm" type="button">Edit</button>
-                           <button class="btn btn-danger btn-sm" type="button" {{on "click" (fn this.deleteEmployee employee.emp-id)}}>Delete</button>
+                            <button class="btn btn-primary btn-sm" type="button" {{on "click" (fn this.editEmployee
+                                employee.emp-id)}}>Edit</button>
+                            <button class="btn btn-danger btn-sm" type="button" {{on "click" (fn this.deleteEmployee
+                                employee.emp-id)}}>Delete</button>
 
                         </td>
                     </tr>
@@ -41,5 +47,5 @@
                 </tbody>
             </table>
         </div>
-        </div>
     </div>
+</div>

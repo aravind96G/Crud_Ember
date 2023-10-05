@@ -2,7 +2,11 @@
 <div>
   <div class="fixed-header">
     <div>Employee Form</div>
-    <div class="x-icon">&#10006;</div>
+    {{!-- <div class="x-icon">&#10006;</div> --}}
+   <div class="x-icon">
+  <i class="fas fa-times" {{on "click" this.goBack}}></i>
+</div>
+
   </div>
   <div class="form-body">
     <form>
@@ -90,8 +94,7 @@
 
   <div class="save-footer">
     <div class="btn btn-primary" id="save-btn" {{action 'saveEmployee'}}>{{this.btnSaveLabel}}</div>
-    <div class="btn btn-primary" id="cancel-btn">Cancel</div>
-    {{!-- <div class="btn btn-primary save-btn"><button class="btn btn-primary cancel-btn">Cancel</button></div> --}}
+    <div class="btn btn-primary" id="cancel-btn" {{on "click" this.goBack}}>Cancel</div>
   </div>
 
 </div>

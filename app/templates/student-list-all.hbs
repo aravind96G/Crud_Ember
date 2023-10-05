@@ -2,8 +2,8 @@
 <div class="student-container">
 
   <div class="student-list">
-    <div class="header-container">
-      <button class="btn btn-primary btn-m" type="button">&plus; Add</button>
+     <div class="header-container">
+      <button class="btn btn-primary btn-m" type="button" {{on "click" this.goToEmployeeForm}}>&plus; Add</button>
     </div>
 
 
@@ -11,7 +11,7 @@
     <ul class="w3-ul w3-ul-sub">
       {{#if this.model.length}}
       {{#each this.model as |employee|}}
-      <li class="w3-bar w3-bar-sub"  {{on "click" (fn this.goToDetailView employee.emp-id)}} >
+   <li class="w3-bar w3-bar-sub {{if (eq this.selectedEmpId employee.emp-id) 'active'}}" {{on "click" (fn this.goToDetailView employee.emp-id)}}>
         <div class="w3-bar-item">
           <span class="w3-large name-title">{{employee.name}}</span><br>
           <span>{{employee.email}}</span><br>
@@ -28,4 +28,37 @@
     {{outlet}}
   </div>
 </div>
+
+
+
+{{!-- {{page-title "StudentListAll"}}
+<div class="student-container">
+
+  <div class="student-list">
+    <div class="header-container">
+      <button class="btn btn-primary btn-m" type="button" {{on "click" this.goToEmployeeForm}}>&plus; Add</button>
+    </div>
+
+
+
+    <ul class="w3-ul w3-ul-sub">
+      {{#if this.model.length}}
+      {{#each this.model as |employee|}}
+      <li class={{class "w3-bar w3-bar-sub" (if (eq this.selectedEmployeeId employee.emp-id) 'active')}}  {{on "click" (fn this.goToDetailView employee.emp-id)}} >
+        <div class="w3-bar-item">
+          <span class="w3-large name-title">{{employee.name}}</span><br>
+          <span>{{employee.email}}</span><br>
+          <span>{{employee.job-title}}</span>
+        </div>
+      </li>
+      {{/each}}
+      {{else}}
+      <div class="no-data">No Employees Found</div>
+      {{/if}}
+    </ul>
+  </div>
+  <div class="detail-view">
+    {{outlet}}
+  </div>
+</div> --}}
 

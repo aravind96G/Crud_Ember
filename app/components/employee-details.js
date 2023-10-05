@@ -2,9 +2,12 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service'
+import toastr from 'toastr';
+
 
 export default class EmployeeDetailsComponent extends Component {
   @service employee;
+  @service router;
 
   @tracked name;
   @tracked phoneNo;
@@ -47,8 +50,14 @@ export default class EmployeeDetailsComponent extends Component {
 
   @action
   handleInputValues(fieldName, event) {
+    console.log(fieldName, event.target.value)
     let inputValue = event.target.value;
     this[fieldName] = inputValue;
+  }
+
+  @action
+  goBack(){
+    window.history.back();
   }
 
 
@@ -77,6 +86,9 @@ export default class EmployeeDetailsComponent extends Component {
     try {
       await this.employee.addEmployee(empObj);
       console.log('Employee saved successfully!');
+      toastr.success('Saved Successfully', 'Success');
+      this.router.transitionTo('student-list');
+      
     } catch (error) {
       console.error('Error saving employee:', error);
     }
@@ -84,6 +96,8 @@ export default class EmployeeDetailsComponent extends Component {
     try {
       await this.employee.updateEmployee(empObj);
       console.log('Employee Updated successfully!');
+      toastr.success('Updated Successfully', 'Success');
+      this.router.transitionTo('student-list');
     } catch (error) {
       console.error('Error Updating employee:', error);
     }

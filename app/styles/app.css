@@ -1,4 +1,5 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+@import url("ember-toastr");
 
 /* Sidebar Styles */
 .sidebar {
@@ -10,7 +11,7 @@
   top: 0;
   left: 0;
   height: 100%; /* Make the sidebar full height */
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .sidebar ul {
@@ -20,14 +21,14 @@
 
 .sidebar li {
   margin-bottom: 10px;
-  height: 50px;
+  height: auto;
 }
 
 .sidebar a {
   color: #fff; /* Sidebar link color */
   text-decoration: none;
   display: block;
-  height: 50px;
+  height: auto;
   padding: 10px 20px;
   margin-bottom: 10px;
 }
@@ -86,6 +87,10 @@
   flex-direction: column;
   border-bottom: 1px solid #ede6e6;
   padding: 10px;
+  border: 1px solid gray;
+  margin: 5px;
+  background: #333;
+  color: white;
 }
 
 .detail-header-sub {
@@ -133,6 +138,8 @@
   position: fixed;
   right: 10px;
   top: 10px;
+  color: white;
+  cursor: pointer;
 }
 
 .form-body {
@@ -165,7 +172,7 @@
 
 .filter-container {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   padding: 10px;
 }
 
@@ -182,3 +189,22 @@
 .no-data {
   text-align: center;
 }
+
+.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.input-search{
+  height: 35px;
+  border: 1px solid #d8d3d3;
+  padding: 10px;
+}
+
+.w3-bar-sub:hover {
+  background-color: #0d6efd;
+  cursor: pointer;
+  color: white;
+}
+
+

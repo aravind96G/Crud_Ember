@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-
+import { action } from '@ember/object';
 
 export default class StudentListRoute extends Route {
   @service employee;
@@ -22,6 +22,11 @@ export default class StudentListRoute extends Route {
     this.employees = JSON.parse(jsonData);
     console.log(this.employees, 'emp model')
     return this.employees;
+  }
+
+  @action
+  reloadModel() {
+    this.refresh(); // Reload the model from the server
   }
 
 }

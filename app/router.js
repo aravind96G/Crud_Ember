@@ -25,4 +25,5 @@ Router.map(function () {
   this.route('employee', { path: 'employee/:employee_id' });
 
   this.route('new-employee');
+  this.route('about');
 });

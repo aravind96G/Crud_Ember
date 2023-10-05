@@ -1,9 +1,13 @@
-
 <div class="sidebar">
   <ul>
-   <li>
-    <LinkTo @route="student-list" class="active"> Students</LinkTo>
-   </li>
-   <li><LinkTo @route="route2"> profile</LinkTo></li>
+    <li>
+      <LinkTo @route="student-list" class={{this.isActive "student-list" }}> Employees</LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="new-employee" class={{this.isActive "new-employee" }}> Add New Employee</LinkTo>
+    </li>
+    <li>
+      <LinkTo @route="about" class={{this.isActive "about" }}> About</LinkTo>
+    </li>
   </ul>
 </div>
