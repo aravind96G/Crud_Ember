@@ -24,7 +24,6 @@ export default class StudentlistController extends Controller {
 
   @action
   handleSearchInput(event) {
-    this.isLoading = true;
     this.searchQuery = event.target.value;
   }
 

@@ -156,6 +156,7 @@ export default class EmployeeDetailsComponent extends Component {
   async saveEmployee() {
     this.isLoading = true;
     if(!this.formValidationFn()){
+      this.isLoading = false;
       return;
     }
 
