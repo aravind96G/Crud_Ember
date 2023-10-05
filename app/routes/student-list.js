@@ -11,7 +11,7 @@ export default class StudentListRoute extends Route {
 
   async model() {
     const controller = this.controllerFor('student-list'); // Replace 'some-controller' with the actual name of your controller
-    controller.set('isLoading', true); // Reset the specific property to null
+    controller.set('isLoading', true);
     console.log('student list route model')
     let employeesGet = await this.employee.getAllEmployees();
     let employeeArray = Array.from(employeesGet); // Convert proxy object to a regular array

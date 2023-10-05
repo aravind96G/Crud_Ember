@@ -155,11 +155,9 @@ export default class EmployeeDetailsComponent extends Component {
   @action
   async saveEmployee() {
     this.isLoading = true;
-    // if(!this.formValidationFn()){
-    //   console.log('cached validations');
-    //   console.log(this.formValidation)
-    //   return;
-    // }
+    if(!this.formValidationFn()){
+      return;
+    }
 
     let empObj = {
       name: this.name,

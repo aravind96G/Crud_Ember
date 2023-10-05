@@ -7,5 +7,8 @@ module.exports = function (defaults) {
     // Add options here
   });
 
+  app.import('node_modules/bootstrap/dist/css/bootstrap.min.css');
+  app.import('node_modules/toastr/build/toastr.min.css');
+
   return app.toTree();
 };
