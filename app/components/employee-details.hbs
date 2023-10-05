@@ -3,97 +3,177 @@
   <div class="fixed-header">
     <div>Employee Form</div>
     {{!-- <div class="x-icon">&#10006;</div> --}}
-   <div class="x-icon">
-  <i class="fas fa-times" {{on "click" this.goBack}}></i>
-</div>
+    <div class="x-icon">
+      <i class="fas fa-times" {{on "click" this.goBack}}></i>
+    </div>
 
   </div>
   <div class="form-body">
     <form>
       <div class="form-group">
         <label class="form-field-label" for="name">Name:</label>
-        <input type="text" class="form-control" id="name" value={{this.name}} 
-          {{on "input" (fn this.handleInputValues "name")}}
-          required />
+        <input type="text" class="form-control" id="name" value={{this.name}} {{on "input" (fn
+          this.handleInputValues "name" )}} required />
+        {{#if this.formValidation.name}}
+        <div class="err-msg">
+          {{this.formValidation.name}}
+        </div>
+        {{/if}}
       </div>
+
 
       <div class="form-group">
         <label class="form-field-label" for="phoneNo">Phone Number:</label>
-        <input type="number" class="form-control" id="phoneNo" value={{this.phoneNo}}
-          {{on "input" (fn this.handleInputValues "phoneNo")}} required />
+        <input type="number" class="form-control" id="phoneNo" value={{this.phoneNo}} {{on "input" (fn
+          this.handleInputValues "phoneNo" )}} required />
+           {{#if this.formValidation.phoneNo}}
+        <div class="err-msg">
+          {{this.formValidation.phoneNo}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="email">Email:</label>
-        <input type="email" class="form-control" id="email" value={{this.email}}  {{on "input" (fn this.handleInputValues "email")}} required />
+        <input type="email" class="form-control" id="email" value={{this.email}} {{on "input" (fn
+          this.handleInputValues "email" )}} required />
+           {{#if this.formValidation.email}}
+        <div class="err-msg">
+          {{this.formValidation.email}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="address">Address:</label>
-        <textarea type="text" class="form-control" id="address" value={{this.address}}  {{on "input" (fn this.handleInputValues "address")}} required />
+        <textarea type="text" class="form-control" id="address" value={{this.address}} {{on "input" (fn
+          this.handleInputValues "address" )}} required />
+           {{#if this.formValidation.address}}
+        <div class="err-msg">
+          {{this.formValidation.address}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="gender">Gender:</label>
-        <select class="form-control" id="gender" value={{this.gender}} {{on "change" (fn this.handleInputValues "gender")}}>
+        <select class="form-control" id="gender" value={{this.gender}} {{on "change" (fn this.handleInputValues "gender"
+          )}}>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
+         {{#if this.formValidation.gender}}
+        <div class="err-msg">
+          {{this.formValidation.gender}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="age">Age:</label>
-        <input type="number" class="form-control" id="age" value={{this.age}}  {{on "input" (fn this.handleInputValues "age")}} required />
+        <input type="number" class="form-control" id="age" value={{this.age}} {{on "input" (fn
+          this.handleInputValues "age" )}} required />
+           {{#if this.formValidation.age}}
+        <div class="err-msg">
+          {{this.formValidation.age}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="jobTitle">Job Title:</label>
-        <input type="text" class="form-control" id="jobTitle" value={{this.jobTitle}}  {{on "input" (fn this.handleInputValues "jobTitle")}} required />
+        <input type="text" class="form-control" id="jobTitle" value={{this.jobTitle}} {{on "input" (fn
+          this.handleInputValues "jobTitle" )}} required />
+           {{#if this.formValidation.jobTitle}}
+        <div class="err-msg">
+          {{this.formValidation.jobTitle}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="exp">Experience:</label>
-        <input type="text" class="form-control" id="exp" value={{this.exp}}  {{on "input" (fn this.handleInputValues "exp")}}
-          required />
+        <input type="text" class="form-control" id="exp" value={{this.exp}} {{on "input" (fn
+          this.handleInputValues "exp" )}} required />
+           {{#if this.formValidation.exp}}
+        <div class="err-msg">
+          {{this.formValidation.exp}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="domain">Domain:</label>
-        <input type="text" class="form-control" id="domain" value={{this.domain}}  {{on "input" (fn this.handleInputValues "domain")}} required />
+        <input type="text" class="form-control" id="domain" value={{this.domain}} {{on "input" (fn
+          this.handleInputValues "domain" )}} required />
+           {{#if this.formValidation.domain}}
+        <div class="err-msg">
+          {{this.formValidation.domain}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="technology">Technology:</label>
-        <input type="text" class="form-control" id="technology" value={{this.technology}}  {{on "input" (fn this.handleInputValues "technology")}} required />
+        <input type="text" class="form-control" id="technology" value={{this.technology}} {{on "input" (fn
+          this.handleInputValues "technology" )}} required />
+           {{#if this.formValidation.technology}}
+        <div class="err-msg">
+          {{this.formValidation.technology}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="reportingName">Reporting Name:</label>
-        <input type="text" class="form-control" id="reportingName" value={{this.reportingName}} 
-       {{on "input" (fn this.handleInputValues "reportingName")}} required />
+        <input type="text" class="form-control" id="reportingName" value={{this.reportingName}} {{on "input" (fn
+          this.handleInputValues "reportingName" )}} required />
+           {{#if this.formValidation.reportingName}}
+        <div class="err-msg">
+          {{this.formValidation.reportingName}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="reportingJobTitle">Reporting Job Title:</label>
-        <input type="text" class="form-control" id="reportingJobTitle" value={{this.reportingJobTitle}}  {{on "input" (fn this.handleInputValues "reportingJobTitle")}} required />
+        <input type="text" class="form-control" id="reportingJobTitle" value={{this.reportingJobTitle}} {{on "input" (fn
+          this.handleInputValues "reportingJobTitle" )}} required />
+           {{#if this.formValidation.reportingJobTitle}}
+        <div class="err-msg">
+          {{this.formValidation.reportingJobTitle}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="reportingPhoneNo">Reporting Phone Number:</label>
-        <input type="number" class="form-control" id="reportingPhoneNo" value={{this.reportingPhoneNo}}  {{on "input" (fn this.handleInputValues "reportingPhoneNo")}}required />
+        <input type="number" class="form-control" id="reportingPhoneNo" value={{this.reportingPhoneNo}} {{on "input" (fn
+          this.handleInputValues "reportingPhoneNo" )}}required />
+           {{#if this.formValidation.reportingPhoneNo}}
+        <div class="err-msg">
+          {{this.formValidation.reportingPhoneNo}}
+        </div>
+        {{/if}}
       </div>
 
       <div class="form-group">
         <label class="form-field-label" for="reportingEmailId">Reporting Email:</label>
-        <input type="email" class="form-control" id="reportingEmailId" value={{this.reportingEmailId}}  {{on "input" (fn this.handleInputValues "reportingEmailId")}} required />
+        <input type="email" class="form-control" id="reportingEmailId" value={{this.reportingEmailId}} {{on "input" (fn
+          this.handleInputValues "reportingEmailId" )}} required />
+           {{#if this.formValidation.reportingEmailId}}
+        <div class="err-msg">
+          {{this.formValidation.reportingEmailId}}
+        </div>
+        {{/if}}
       </div>
 
     </form>
   </div>
 
   <div class="save-footer">
-    <div class="btn btn-primary" id="save-btn" {{action 'saveEmployee'}}>{{this.btnSaveLabel}}</div>
+    <div class="btn btn-primary" id="save-btn" {{action 'saveEmployee' }}>{{this.btnSaveLabel}}</div>
     <div class="btn btn-primary" id="cancel-btn" {{on "click" this.goBack}}>Cancel</div>
   </div>
 

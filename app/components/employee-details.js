@@ -13,7 +13,7 @@ export default class EmployeeDetailsComponent extends Component {
   @tracked phoneNo;
   @tracked email;
   @tracked address;
-  @tracked gender;
+  @tracked gender = "male";
   @tracked age;
   @tracked jobTitle;
   @tracked exp;
@@ -24,6 +24,7 @@ export default class EmployeeDetailsComponent extends Component {
   @tracked reportingPhoneNo;
   @tracked reportingEmailId;
   @tracked btnSaveLabel = 'Save'
+  @tracked formValidation = {}
 
   constructor() {
     super(...arguments);
@@ -48,8 +49,13 @@ export default class EmployeeDetailsComponent extends Component {
     }
   }
 
+  initializeState() {
+    this.formValidation = {}
+  }
+
   @action
   handleInputValues(fieldName, event) {
+    this.initializeState();
     console.log(fieldName, event.target.value)
     let inputValue = event.target.value;
     this[fieldName] = inputValue;
@@ -60,9 +66,77 @@ export default class EmployeeDetailsComponent extends Component {
     window.history.back();
   }
 
+  @action
+  formValidationFn(){
+    this.formValidation = {}
+    let isValid = true;
+    if(!this.name){
+       this.formValidation['name'] = 'Name is Mandatory';
+       isValid = false;
+    }
+    if(!this.phoneNo){
+      this.formValidation['phoneNo'] = 'Phone Number is Mandatory';
+      isValid = false;
+    }
+    if(!this.email){
+      this.formValidation['email'] = 'EmailId is Mandatory';
+      isValid = false;
+    }
+    if(!this.address){
+      this.formValidation['address'] = 'Address is Mandatory';
+      isValid = false;
+    }
+    if(!this.gender){
+      this.formValidation['gender'] = 'Gender is Mandatory';
+      isValid = false;
+    }
+    if(!this.age){
+      this.formValidation['age'] = 'Age is Mandatory';
+      isValid = false;
+    }
+    if(!this.jobTitle){
+      this.formValidation['jobTitle'] = 'JobTitle is Mandatory';
+      isValid = false;
+    }
+    if(!this.domain){
+      this.formValidation['domain'] = 'Domain is Mandatory';
+      isValid = false;
+    }
+    if(!this.technology){
+      this.formValidation['technology'] = 'Technology is Mandatory';
+      isValid = false;
+    }
+    if(!this.exp){
+      this.formValidation['exp'] = 'Experience is Mandatory';
+      isValid = false;
+    }
+    if(!this.reportingName){
+      this.formValidation['reportingName'] = 'Reporting Name is Mandatory';
+      isValid = false;
+    }
+    if(!this.reportingJobTitle){
+      this.formValidation['reportingJobTitle'] = 'Reporting Job Title is Mandatory';
+      isValid = false;
+    }
+    if(!this.reportingPhoneNo){
+      this.formValidation['reportingPhoneNo'] = 'Reporting Phone No is Mandatory';
+      isValid = false;
+    }
+    if(!this.reportingEmailId){
+      this.formValidation['reportingEmailId'] = 'reportingEmailId is Mandatory';
+      isValid = false;
+    }
+    return isValid;
+  }
 
   @action
   async saveEmployee() {
+    console.log('save fun')
+    if(!this.formValidationFn()){
+      console.log('cached validations');
+      console.log(this.formValidation)
+      return;
+    }
 
     let empObj = {
       name: this.name,
