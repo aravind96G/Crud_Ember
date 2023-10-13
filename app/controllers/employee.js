@@ -3,7 +3,6 @@
 import Controller from '@ember/controller';
 
 export default class EmployeeController extends Controller {
-
   init() {
     super.init();
     // this.store.findAll('employee').then(employees => {

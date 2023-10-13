@@ -6,6 +6,8 @@ export default class EmployeeRoute extends Route {
   @service employee;
 
   async model(params) {
-     return await this.employee.findEmployeeByEmpId(parseInt(params.employee_id));
+    return await this.employee.findEmployeeByEmpId(
+      parseInt(params.employee_id),
+    );
   }
 }

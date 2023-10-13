@@ -11,7 +11,7 @@ export default class EmployeeService extends Service {
   }
 
   async addEmployee(emp) {
-    console.log(emp, 'addedemp')
+    console.log(emp, 'addedemp');
     // let newEmployee = this.store.createRecord('employee', emp);
     // newEmployee.save();
 
@@ -25,11 +25,13 @@ export default class EmployeeService extends Service {
     console.log(empId, 'find by id');
     let employeeJson;
     try {
-      let employee = await this.store.queryRecord('employee', { filter: { 'emp-id': empId } });
+      let employee = await this.store.queryRecord('employee', {
+        filter: { 'emp-id': empId },
+      });
 
       if (employee) {
         // Employee with the specified emp-id found
-         employeeJson = employee.serialize();
+        employeeJson = employee.serialize();
         console.log('Employee found:', employeeJson.data.attributes);
       } else {
         // Employee with the specified emp-id not found
@@ -45,7 +47,9 @@ export default class EmployeeService extends Service {
   async updateEmployee(params) {
     try {
       // Fetch the employee record by emp-id
-      let employee = await this.store.queryRecord('employee', { filter: { 'emp-id': params.empId } });
+      let employee = await this.store.queryRecord('employee', {
+        filter: { 'emp-id': params.empId },
+      });
 
       if (employee) {
         // Update attributes
@@ -79,20 +83,19 @@ export default class EmployeeService extends Service {
 
   async deleteEmployee(id) {
     try {
-      let employee = await this.store.queryRecord('employee', { filter: { 'emp-id': id } });
+      let employee = await this.store.queryRecord('employee', {
+        filter: { 'emp-id': id },
+      });
       // Delete the record
       await employee.destroyRecord();
       console.log('Employee deleted successfully.');
-      return 'success'
-      
+      return 'success';
+
       // Optionally, transition to another route after deletion
       // this.transitionToRoute('some-other-route');
     } catch (error) {
       console.error('Error deleting employee:', error);
-      return 'failure'
+      return 'failure';
     }
   }
-
-
 }
-

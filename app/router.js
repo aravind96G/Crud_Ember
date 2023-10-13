@@ -17,10 +17,9 @@ Router.map(function () {
   // });
   this.route('route2');
   this.route('route3');
-  this.route('student-list-all', function() {
+  this.route('student-list-all', function () {
     this.route('student', { path: '/:user_id' });
   });
-
 
   this.route('employee', { path: 'employee/:employee_id' });
 

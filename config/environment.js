@@ -21,7 +21,7 @@ module.exports = function (environment) {
     'ember-local-storage': {
       // Specify the model name and adapter type ('localstorage' in this case)
       namespace: true,
-      localStorage: 'employeeCorner' // Set a unique name for your application
+      localStorage: 'employeeCorner', // Set a unique name for your application
     },
   };
 

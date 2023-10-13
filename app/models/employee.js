@@ -2,9 +2,8 @@
 
 import Model, { attr } from '@ember-data/model';
 
-
-export  class EmployeeModel extends Model {
-//   @attr('number') id;
+export class EmployeeModel extends Model {
+  //   @attr('number') id;
   @attr('string') name;
   @attr('number') empId;
   @attr('number') phoneNo;
@@ -20,8 +19,6 @@ export  class EmployeeModel extends Model {
   @attr('string') reportingJobTitle;
   @attr('number') reportingPhoneNo;
   @attr('string') reportingEmailId;
-
-  
 }
 
 // EmployeeModel.reopenClass({
@@ -34,8 +31,7 @@ export  class EmployeeModel extends Model {
 //     ]
 //   });
 
-  export default EmployeeModel;
-
+export default EmployeeModel;
 
 // EmployeeModel.reopenClass({
 //     // Static properties or methods go here
@@ -45,4 +41,3 @@ export  class EmployeeModel extends Model {
 //       return 'Hello, World!';
 //     }
 //   });
-
