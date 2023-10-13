@@ -10,7 +10,6 @@ export default class StudentListRoute extends Route {
   @tracked employees;
 
   async model() {
-    console.log('model log')
     const controller = this.controllerFor('student-list'); // Replace 'some-controller' with the actual name of your controller
     controller.set('isLoading', true);
     console.log('student list route model')
@@ -31,24 +30,6 @@ export default class StudentListRoute extends Route {
   @action
   reloadModel() {
     this.refresh(); // Reload the model from the server
-  }
-
-  beforeModel(){
-    console.log('before modal log')
-  }
-
-  afterModel(){
-    console.log('after modal log')
-  }
-
-  // setupController(controller, model){
-  //   console.log('setup controller')
-  //   this._super(controller, model);
-  //   controller.set('posts', model);
-  // }
-
-  resetController(){
-    console.log('reset controller')
   }
 
 }

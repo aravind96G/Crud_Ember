@@ -31,7 +31,7 @@ export default class EmployeeDetailsComponent extends Component {
 
   constructor() {
     super(...arguments);
-    console.log(this.isLoading)
+
     if(this.args.empData){
       this.name = this.args.empData.name;
       this.phoneNo = this.args.empData['phone-no'];
@@ -155,10 +155,10 @@ export default class EmployeeDetailsComponent extends Component {
   @action
   async saveEmployee() {
     this.isLoading = true;
-    // if(!this.formValidationFn()){
-    //   this.isLoading = false;
-    //   return;
-    // }
+    if(!this.formValidationFn()){
+      this.isLoading = false;
+      return;
+    }
 
     let empObj = {
       name: this.name,
@@ -206,17 +206,6 @@ export default class EmployeeDetailsComponent extends Component {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive, and the minimum is inclusive
   }
-
-  willDestroyElement() {
-    console.log('emp list destroyed')
-    // Perform cleanup tasks before the component's element is removed from the DOM
-  }
-
-  willDestroy() {
-    console.log('---destroy---')
-    // Perform final cleanup tasks before the component is destroyed
-  }
-
 }
 
 

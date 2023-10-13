@@ -6,6 +6,10 @@ export default class EmployeeController extends Controller {
 
   init() {
     super.init();
-    console.log('emp-controller')
+    // this.store.findAll('employee').then(employees => {
+    //   // Employees loaded from fixtures
+    //   console.log(employees.toArray());
+    // });
+    // this.employee.addEmployee(empObj)
   }
 }
