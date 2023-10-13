@@ -1,4 +1,3 @@
 import JSONAPISerializer from '@ember-data/serializer/json-api';
 
-export default class EmployeeSerializer extends JSONAPISerializer {
-}
+export default class EmployeeSerializer extends JSONAPISerializer {}

@@ -6,12 +6,8 @@ export default class StudentController extends Controller {
   @service router;
 
   @action
-  editEmployee(empId){
+  editEmployee(empId) {
     console.log(empId, 'edited empid');
     this.router.transitionTo('employee', empId);
   }
-
-
-  
 }
-
